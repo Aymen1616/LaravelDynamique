@@ -8,3 +8,17 @@ php artisan make:model Etudiant -m
 
 3. creation des tables 
 php artisan migrate
+
+4. saisie Ville
+php artisan make:factory VilleFactory --model=Ville
+php artisan tinker
+\App\Models\Ville::factory(15)->create();
+
+5. saisie Etudiant
+php artisan make:factory EtudiantFactory --model=Etudiant
+php artisan tinker
+\App\Models\Etudiant::factory(100)->create();
+
+6.Création du contrôleur EtudiantController
+php artisan make:controller EtudiantController --resource --model=Etudiant
+
