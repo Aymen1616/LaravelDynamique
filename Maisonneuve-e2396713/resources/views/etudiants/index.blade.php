@@ -36,8 +36,26 @@
                         <strong>Date de Naissance :</strong> {{ $etudiant->date_naissance }} <br>
                         <strong>Ville :</strong> {{ $etudiant->ville ? $etudiant->ville->nom : 'Non spécifiée' }}
                     </p>
-                    <div class="text-end">
-                        <a href="{{ route('etudiants.edit', $etudiant->id) }}" class="btn btn-warning">Modifier</a>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#etudiantModal{{ $etudiant->id }}">
+                        Voir Détails
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="etudiantModal{{ $etudiant->id }}" tabindex="-1" aria-labelledby="etudiantModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="etudiantModalLabel">Détails de l'Étudiant</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Nom :</strong> {{ $etudiant->nom }}</p>
+                        <p><strong>Adresse :</strong> {{ $etudiant->adresse }}</p>
+                        <p><strong>Téléphone :</strong> {{ $etudiant->telephone }}</p>
+                        <p><strong>Email :</strong> {{ $etudiant->email }}</p>
+                        <p><strong>Date de Naissance :</strong> {{ $etudiant->date_naissance }}</p>
+                        <p><strong>Ville :</strong> {{ $etudiant->ville->nom ?? 'Non spécifiée' }}</p>
                     </div>
                 </div>
             </div>
@@ -45,4 +63,5 @@
         @endforeach
     </div>
 </div>
+
 @endsection

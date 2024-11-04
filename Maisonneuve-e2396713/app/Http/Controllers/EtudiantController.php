@@ -60,7 +60,7 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        //
+        return view('etudiants.show', ['etudiant' => $etudiant]);
     }
 
     /**
