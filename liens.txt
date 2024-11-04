@@ -1,5 +1,7 @@
+1. creation du project
 composer create-project --prefer-dist laravel/laravel Maisonneuve-e2396713 "8.*"
 
+2. crations des modeles
 
-php artisan make:model Etudiant -m
 php artisan make:model Ville -m
+php artisan make:model Etudiant -m
