@@ -5,28 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Liens vers Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Liens vers Font Awesome (pour l'icône) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>@yield('title', 'Page d\'Accueil')</title>
-
-
 </head>
 <body>
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Collège Maisonneuve</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('etudiants.index') }}">Liste des Étudiants</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('etudiants.create') }}">Ajouter un Étudiant</a>
-                    </li>
-                </ul>
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <!-- Icône école à côté du texte -->
+                    <i class="fas fa-school me-2"></i>
+                    Collège Maisonneuve
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav d-flex justify-content-center">
+                        <li class="nav-item ms-4">
+                            <a class="nav-link" href="{{ route('etudiants.index') }}">Liste des Étudiants</a>
+                        </li>
+                        <li class="nav-item ms-4">
+                            <a class="nav-link" href="{{ route('etudiants.create') }}">Ajouter un Étudiant</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
