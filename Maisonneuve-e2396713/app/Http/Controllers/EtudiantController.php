@@ -16,7 +16,8 @@ class EtudiantController extends Controller
     public function index()
     {
         $etudiants = Etudiant::all();
-        return view('etudiants.index', ['etudiants' => $etudiants]);
+        $villes = Ville::all();
+        return view('etudiants.index', ['etudiants' => $etudiants, 'villes' => $villes]);
     }
 
     /**
@@ -71,7 +72,8 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        //
+        $villes = Ville::all();
+        return view('etudiants.edit', ['etudiant' => $etudiant, 'villes' => $villes]);
     }
 
     /**
@@ -83,8 +85,19 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'adresse' => 'required|string|max:255',
+            'telephone' => 'required|string|max:15|unique:etudiants,telephone,' . $etudiant->id,
+            'email' => 'required|email|max:255|unique:etudiants,email,' . $etudiant->id,
+            'ville_id' => 'required|exists:villes,id',
+        ]);
+    
+        $etudiant->update($request->all());
+    
+        return redirect()->route('etudiants.index')->with('success', 'Les informations ont été mises à jour.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -94,6 +107,7 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+        $etudiant->delete(); 
+        return redirect()->route('etudiants.index')->with('success', 'L\'étudiant a été supprimé.');
     }
 }
