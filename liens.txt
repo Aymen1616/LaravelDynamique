@@ -22,3 +22,4 @@ php artisan tinker
 6.Création du contrôleur EtudiantController
 php artisan make:controller EtudiantController --resource --model=Etudiant
 
+lien git : https://github.com/Aymen1616/LaravelDynamique
