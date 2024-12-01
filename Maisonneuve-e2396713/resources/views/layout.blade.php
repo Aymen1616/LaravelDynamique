@@ -25,17 +25,36 @@
                 </button>
                 <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                     <ul class="navbar-nav d-flex justify-content-center">
+                        <!-- Lien Liste des Étudiants -->
                         <li class="nav-item ms-4">
                             <a class="nav-link" href="{{ route('etudiants.index') }}">Liste des Étudiants</a>
                         </li>
+                        <!-- Lien Ajouter un Étudiant -->
                         <li class="nav-item ms-4">
                             <a class="nav-link" href="{{ route('etudiants.create') }}">Ajouter un Étudiant</a>
                         </li>
+    
+                        <!-- Liens d'authentification -->
+                        @if (auth()->check())  <!-- Si l'utilisateur est connecté -->
+                            <li class="nav-item ms-4">
+                                <a class="nav-link" href="{{ route('logout') }}">Déconnexion</a>
+                            </li>
+                        @else <!-- Si l'utilisateur n'est pas connecté -->
+                            <li class="nav-item ms-4">
+                                <a class="nav-link" href="{{ route('login') }}">Connexion</a>
+                            </li>
+                            <!-- Ajout de l'option "S'inscrire" -->
+                            <li class="nav-item ms-4">
+                                <a class="nav-link" href="{{ route('auth.register') }}">S'inscrire</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    
+    
 
     <main class="container mt-4">
         @yield('content') <!-- Contenu spécifique à chaque page -->
