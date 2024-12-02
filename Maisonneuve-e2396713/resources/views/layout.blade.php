@@ -43,10 +43,10 @@
                             <li class="nav-item ms-4">
                                 <a class="nav-link" href="{{ route('login') }}">Connexion</a>
                             </li>
-                            <!-- Ajout de l'option "S'inscrire" -->
+                            {{-- <!-- Ajout de l'option "S'inscrire" -->
                             <li class="nav-item ms-4">
                                 <a class="nav-link" href="{{ route('auth.register') }}">S'inscrire</a>
-                            </li>
+                            </li> --}}
                         @endif
                     </ul>
                 </div>
@@ -75,11 +75,11 @@
 
                 <!-- Carte 2 : Ajouter un étudiant -->
                 <div class="col-md-6 mb-4">
-                    <a href="{{ route('etudiants.create') }}" class="card-link">
+                    <a href="{{ route('auth.register') }}" class="card-link">
                         <div class="card">
                             <img src="{{ asset('images/ajouter_etudiant.jfif') }}" class="card-img-top" alt="Ajouter un étudiant">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Ajouter un Étudiant</h5>
+                                <h5 class="card-title">Inscrire un Étudiant</h5>
                             </div>
                         </div>
                     </a>
