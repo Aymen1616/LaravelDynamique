@@ -60,3 +60,6 @@ Route::post('/login', [AuthController::class, 'store'])->name('login.store');
 
 // Route pour la déconnexion
 Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
+
+// Page de profil de l'utilisateur
+Route::get('/profil', [EtudiantController::class, 'profil'])->name('profil')->middleware('auth');

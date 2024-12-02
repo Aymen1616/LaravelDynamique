@@ -30,9 +30,9 @@
                             <a class="nav-link" href="{{ route('etudiants.index') }}">Liste des Étudiants</a>
                         </li>
                         <!-- Lien Ajouter un Étudiant -->
-                        <li class="nav-item ms-4">
+                        {{-- <li class="nav-item ms-4">
                             <a class="nav-link" href="{{ route('etudiants.create') }}">Ajouter un Étudiant</a>
-                        </li>
+                        </li> --}}
     
                         <!-- Liens d'authentification -->
                         @if (auth()->check())  <!-- Si l'utilisateur est connecté -->

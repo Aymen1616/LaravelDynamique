@@ -136,7 +136,22 @@ class EtudiantController extends Controller
         return redirect()->route('etudiants.index')->with('success', 'Les informations de l\'étudiant ont été mises à jour.');
     }
     
+    public function profil()
+    {
+        // Récupérer l'étudiant associé à l'utilisateur connecté
+        $etudiant = Etudiant::where('user_id', Auth::id())->first();
     
+        // Vérifier si l'étudiant existe
+        if (!$etudiant) {
+            // Si l'étudiant n'existe pas, rediriger avec un message d'erreur
+            return redirect()->route('home')->with('error', 'Aucun étudiant trouvé.');
+        }
+    
+        // Passer l'étudiant à la vue
+        return view('etudiants.profil', ['etudiant' => $etudiant]);
+    }
+    
+
 
     /**
      * Remove the specified resource from storage.
