@@ -11,21 +11,10 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // Formulaire de connexion
     public function create()
-    {
-        return view('auth.create'); // Formulaire de connexion
-    }
-
-
-
-    // Déconnexion de l'utilisateur
-    public function destroy()
-    {
-        Auth::logout(); // Déconnexion
-        return redirect()->route('login'); // Redirection vers la page de connexion
-    }
-
+{
+    return view('auth.login');  
+}
     // Inscription d'un utilisateur (registre)
     public function register(Request $request)
     {
@@ -42,29 +31,32 @@ class AuthController extends Controller
     
         // Création de l'utilisateur
         $user = User::create([
-            'name' => $request->name,  // Utilisation du même nom
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
     
-        // Création de l'étudiant avec le même nom et l'association à l'utilisateur
         $etudiant = Etudiant::create([
-            'nom' => $request->name,  // Utilisation du même nom
+            'nom' => $request->name,  
             'email' => $request->email,
             'telephone' => $request->telephone,
             'adresse' => $request->adresse,
             'date_naissance' => $request->date_naissance,
             'ville_id' => $request->ville_id,
-            'user_id' => $user->id,  // Association de l'utilisateur à l'étudiant
+            'user_id' => $user->id,  
         ]);
     
-        // Connexion de l'utilisateur (qui est aussi l'étudiant)
         Auth::login($user);
     
-        // Redirection vers la page connexion
         return redirect()->route('login');
     }
-    
+    // Déconnexion de l'utilisateur
+    public function destroy()
+    {
+        Auth::logout(); // Déconnexion
+        return redirect()->route('login'); 
+    }
+
 // Connexion de l'utilisateur
 public function store(Request $request)
 {
@@ -79,18 +71,13 @@ public function store(Request $request)
         // Redirection vers la page de profil de l'utilisateur après la connexion
         return redirect()->route('profil');
     }
-
-    // Si la connexion échoue, renvoyer l'utilisateur au formulaire avec un message d'erreur
     return back()->withErrors(['email' => 'Identifiants incorrects']);
 }
 
-// Dans AuthController
+
 public function showRegisterForm()
 {
-    // Récupérer les villes depuis la base de données
     $villes = Ville::all(); 
-
-    // Passer les villes à la vue
     return view('auth.register', ['villes' => $villes]);
 }
 

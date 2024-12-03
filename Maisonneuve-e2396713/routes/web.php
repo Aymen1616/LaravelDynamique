@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\SetLocaleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('layout');
 });
 
-// Routes publiques (pas protégées)
-// Route::get('/login', [AuthController::class, 'create'])->name('login');
-// Route::post('/login', [AuthController::class, 'store'])->name('login.store');
-// Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 // Groupes de routes protégées par le middleware auth
 Route::middleware(['auth'])->group(function () {
@@ -63,3 +59,7 @@ Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 // Page de profil de l'utilisateur
 Route::get('/profil', [EtudiantController::class, 'profil'])->name('profil')->middleware('auth');
+
+
+
+Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');

@@ -16,7 +16,6 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="/">
-                    <!-- Icône école à côté du texte -->
                     <i class="fas fa-school me-2"></i>
                     Collège Maisonneuve
                 </a>
@@ -25,34 +24,34 @@
                 </button>
                 <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                     <ul class="navbar-nav d-flex justify-content-center">
-                        <!-- Lien Liste des Étudiants -->
                         <li class="nav-item ms-4">
-                            <a class="nav-link" href="{{ route('etudiants.index') }}">Liste des Étudiants</a>
+                            <a class="nav-link" href="{{ route('etudiants.index') }}">{{ __('messages.student_list') }}</a>
                         </li>
-                        <!-- Lien Ajouter un Étudiant -->
-                        {{-- <li class="nav-item ms-4">
-                            <a class="nav-link" href="{{ route('etudiants.create') }}">Ajouter un Étudiant</a>
-                        </li> --}}
-    
-                        <!-- Liens d'authentification -->
-                        @if (auth()->check())  <!-- Si l'utilisateur est connecté -->
+                        @if (auth()->check())
                             <li class="nav-item ms-4">
-                                <a class="nav-link" href="{{ route('logout') }}">Déconnexion</a>
+                                <a class="nav-link" href="{{ route('logout') }}">{{ __('messages.logout') }}</a>
                             </li>
-                        @else <!-- Si l'utilisateur n'est pas connecté -->
+                        @else
                             <li class="nav-item ms-4">
-                                <a class="nav-link" href="{{ route('login') }}">Connexion</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                             </li>
-                            {{-- <!-- Ajout de l'option "S'inscrire" -->
-                            <li class="nav-item ms-4">
-                                <a class="nav-link" href="{{ route('auth.register') }}">S'inscrire</a>
-                            </li> --}}
                         @endif
+                        <li class="nav-item dropdown ms-4">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ app()->getLocale() }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('lang', ['locale' => 'en']) }}">English</a></li>
+                                <li><a class="dropdown-item" href="{{ route('lang', ['locale' => 'fr']) }}">Français</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    
+    
     
     
 
@@ -67,7 +66,7 @@
                         <div class="card">
                             <img src="{{ asset('images/liste_etudiants.jfif') }}" class="card-img-top" alt="Liste des étudiants">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Liste des Étudiants</h5>
+                                <h5 class="card-title">{{ __('messages.student_list') }}</h5>
                             </div>
                         </div>
                     </a>
@@ -79,7 +78,7 @@
                         <div class="card">
                             <img src="{{ asset('images/ajouter_etudiant.jfif') }}" class="card-img-top" alt="Ajouter un étudiant">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Inscrire un Étudiant</h5>
+                                <h5 class="card-title">{{ __('messages.inscription_etudiant') }}</h5>
                             </div>
                         </div>
                     </a>

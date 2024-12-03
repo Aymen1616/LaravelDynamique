@@ -11,7 +11,6 @@ class EtudiantController extends Controller
 {
     public function __construct()
     {
-        // Appliquer le middleware auth à toutes les actions du contrôleur
         $this->middleware('auth');
     }
     /**
@@ -118,7 +117,6 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        // Vérifier que l'étudiant appartient à l'utilisateur connecté
         if ($etudiant->user_id != Auth::id()) {
             return redirect()->route('etudiants.index')->with('error', 'Vous n\'avez pas l\'autorisation de modifier cet étudiant.');
         }
