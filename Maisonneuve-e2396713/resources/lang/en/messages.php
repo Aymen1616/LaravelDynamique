@@ -15,6 +15,7 @@ return [
     'submit' => 'Register',
     'success_message' => 'Registration successful',
     'student_list' => 'List of Students',
+    'article_list' => 'List of Article',
     'details' => 'View Details',
     'login' => 'Login',
     'logout' => 'Logout',
@@ -63,6 +64,7 @@ return [
     'current_file' => 'Current File',
     'view_current_file' => 'View Current File',
     'update' => 'Update',
+    'update_article' => 'Update Article',
     'edit_file' => 'Edit File',
     'title_fr' => 'Title (French)',
     'title_en' => 'Title (English)',
@@ -71,4 +73,6 @@ return [
     'current_file' => 'Current File',
     'view_current_file' => 'View Current File',
     'update' => 'Update',
+    'langue'=>'language',
+    'add_article' => 'Added by',
 ];

@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Liste des articles</h1>
+    <h1 class="mb-4">{{ __('messages.article_list') }}</h1>
 
     <!-- Affichage du message de succès -->
     @if(session('success'))
@@ -30,11 +30,11 @@
 
                         <!-- Si l'utilisateur est le propriétaire de l'article, lui permettre de le modifier ou supprimer -->
                         @if($article->user_id == Auth::id())
-                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning btn-sm">{{__('messages.edit')}}</a>
                             <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                                <button type="submit" class="btn btn-danger btn-sm">{{__('messages.delete')}}</button>
                             </form>
                         @endif
                     </div>
@@ -47,6 +47,6 @@
     {{ $articles->links() }}
 
     <!-- Bouton pour créer un nouvel article -->
-    <a href="{{ route('articles.create') }}" class="btn btn-primary mt-3">Créer un nouvel article</a>
+    <a href="{{ route('articles.create') }}" class="btn btn-primary mt-3">{{__('messages.article')}}</a>
 </div>
 @endsection

@@ -70,4 +70,8 @@ return [
     'current_file' => 'Fichier actuel',
     'view_current_file' => 'Voir le fichier actuel',
     'update' => 'Mettre à jour',
+    'update_article' => 'Modifier l\'article',
+    'langue'=>'langue',
+    'article_list' => 'Liste des Articles',
+    'add_article' => 'Publié par',
 ];
