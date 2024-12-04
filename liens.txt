@@ -23,3 +23,5 @@ php artisan tinker
 php artisan make:controller EtudiantController --resource --model=Etudiant
 
 lien git : https://github.com/Aymen1616/LaravelDynamique
+email:johny@test.com
+password:123456
