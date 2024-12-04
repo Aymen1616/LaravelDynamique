@@ -42,4 +42,8 @@ return [
     'cancel' => 'Annuler',
     'success' => 'L\'opération a été effectuée avec succès.',
     'modify_or_delete' => 'Modifier ou Supprimer l\'Étudiant',
+    'article' =>'Créer un nouvel article',
+    'title' => 'Titre',
+    'content' => 'Contenu',
+    'save_article' => 'Enregistrer l\'article',
 ];

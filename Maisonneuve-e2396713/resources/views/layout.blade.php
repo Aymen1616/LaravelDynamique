@@ -27,6 +27,12 @@
                         <li class="nav-item ms-4">
                             <a class="nav-link" href="{{ route('etudiants.index') }}">{{ __('messages.student_list') }}</a>
                         </li>
+                        <li class="nav-item ms-4">
+                            <a class="nav-link" href="{{ url('/articles') }}">Forum</a>
+                        </li>
+                        <li class="nav-item ms-4">
+                            <a class="nav-link" href="{{ route('profil') }}">{{ __('messages.profile') }}</a>
+                        </li>
                         @if (auth()->check())
                             <li class="nav-item ms-4">
                                 <a class="nav-link" href="{{ route('logout') }}">{{ __('messages.logout') }}</a>
@@ -51,10 +57,6 @@
         </nav>
     </header>
     
-    
-    
-    
-
     <main class="container mt-4">
         @yield('content') <!-- Contenu spécifique à chaque page -->
 

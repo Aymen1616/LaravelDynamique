@@ -42,4 +42,8 @@ return [
     'cancel' => 'Cancel',
     'success' => 'The operation was successful.',
     'modify_or_delete' => 'Modify or Delete Student',
+    'article' =>'Create an article',
+    'title' => 'Title',
+    'content' => 'Content',
+    'save_article' => 'save article',
 ];

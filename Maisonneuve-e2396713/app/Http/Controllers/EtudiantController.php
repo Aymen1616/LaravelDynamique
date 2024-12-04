@@ -117,10 +117,12 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
+        // Vérifier que l'étudiant appartient à l'utilisateur connecté
         if ($etudiant->user_id != Auth::id()) {
             return redirect()->route('etudiants.index')->with('error', 'Vous n\'avez pas l\'autorisation de modifier cet étudiant.');
         }
     
+        // Validation des données
         $request->validate([
             'nom' => 'required|string|max:255',
             'adresse' => 'required|string|max:255',
@@ -129,10 +131,12 @@ class EtudiantController extends Controller
             'ville_id' => 'required|exists:villes,id',
         ]);
     
+        // Mise à jour des informations de l'étudiant
         $etudiant->update($request->all());
     
         return redirect()->route('etudiants.index')->with('success', 'Les informations de l\'étudiant ont été mises à jour.');
     }
+    
     
     public function profil()
     {

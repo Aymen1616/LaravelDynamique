@@ -45,7 +45,7 @@
                         <form action="{{ route('etudiants.update', $etudiant->id) }}" method="POST">
                             @csrf
                             @method('PUT') 
-        
+                        
                             <div class="mb-3">
                                 <label for="nom" class="form-label">{{ __('messages.nom') }}</label>
                                 <input type="text" class="form-control" id="nom" name="nom" value="{{ old('nom', $etudiant->nom) }}" required>
@@ -70,13 +70,13 @@
                                 <label for="email" class="form-label">{{ __('messages.email') }}</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $etudiant->email) }}" required>
                             </div>
-        
-                            <!-- Boutons pour enregistrer et supprimer -->
+                        
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $etudiant->id }}">{{ __('messages.delete') }}</button>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -107,5 +107,6 @@
 
         @endforeach
     </div>
+    
 </div>
 @endsection
