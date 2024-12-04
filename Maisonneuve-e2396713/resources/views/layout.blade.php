@@ -42,6 +42,10 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                             </li>
                         @endif
+                        <!-- Ajout du lien vers l'index des fichiers -->
+                        <li class="nav-item ms-4">
+                            <a class="nav-link" href="{{ route('files.index') }}">{{ __('messages.files') }}</a>
+                        </li>
                         <li class="nav-item dropdown ms-4">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ app()->getLocale() }}
@@ -56,6 +60,7 @@
             </div>
         </nav>
     </header>
+    
     
     <main class="container mt-4">
         @yield('content') <!-- Contenu spécifique à chaque page -->

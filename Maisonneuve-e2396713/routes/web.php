@@ -75,3 +75,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
     Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 });
+
+use App\Http\Controllers\FileController;
+
+Route::resource('files', FileController::class);
+Route::get('/files/create', [FileController::class, 'create'])->name('files.create');
+Route::post('/files', [FileController::class, 'store'])->name('files.store');
+Route::get('/files/{file}/edit', [FileController::class, 'edit'])->name('files.edit');
+Route::put('/files/{file}', [FileController::class, 'update'])->name('files.update');
